@@ -1,0 +1,41 @@
+ssh krypton1:KRYPTONISGREAT@krypton.labs.overthewire.org:2222
+ssh krypton.labs.overthewire.org -p 2222 -l krypton1
+
+level 001:
+	S1JZUFRPTklTR1JFQVQ=
+	KRYPTONISGREAT
+
+level 002:
+	YRIRY GJB CNFFJBEQ EBGGRA
+	LEvEL two pAssworD rottEn
+	leVel TWO PaSSWORd ROTTeN
+	LEVEL TWO PASSWORD ROTTEN
+	LEVEL TWO PASSWORD ROTTEN
+	LEVELTWOPASSWORDROTTEN
+	ROTTEN
+
+level 003:
+	password:
+		CAESARISEASY
+		OMQEMDUEQMEK
+	example:
+		AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
+		MMNNOOPPQQRRSSTTUUVVWWXXYYZZAABBCCDDEEFFGGHHIIJJKKLL
+
+level 004:
+	password:
+		KSVVW BGSJD SVSIS VXBMN YQUUK BNWCU ANMJS
+		FCIIM AXCHV CICHC IOAYN ERLLF ANMWL JNYHC
+
+	Charnums and Frequencies: 
+		C|  a|  b|  c|  d|  e| f|  g|  h|  i|  j| k|  l| m|  n|  o| p|  q|  r|  s|  t|  u|  v|  w| x| y|  z|
+		N|  0|  1|  2|  3|  4| 5|  6|  7|  8|  9|10| 11|12| 13| 14|15| 16| 17| 18| 19| 20| 21| 22|23|24| 25|
+		F| 55|246|227|210| 64|28|227|  4| 19|301|67| 60|86|240| 12| 2|340|  4|456| 75|257|130|129|71|84|132|
+		I|287| 52| 98|149|447|78| 71|214|245|  5|27|141|84|237|264|68|  3|211|223|319| 97| 34| 83| 5|69|  2|
+
+	Guessed Letters, ctext => ptext: 
+		C|  a|  b|  c|  d|  e| f|  g|  h|  i|  j| k|  l| m|  n|  o| p|  q|  r|  s|  t|  u|  v|  w| x| y|  z|
+		G|  b|  i|  s|  r|  y| k|  h|  j|  v|  a| p|  u| w|  n|  x| z|  t|  q|  e|  f|  o|  d|  c| g| m|  l|
+	Guessed letters, ptext => ctext: 
+		G|  a|  b|  c|  d|  e| f|  g|  h|  i|  j| k|  l| m|  n|  o| p|  q|  r|  s|  t|  u|  v|  w| x| y|  z|
+		C|  j|  a|  w|  v|  s| t|  x|  g|  b|  h| f|  z| y|  n|  u| k|  r|  d|  c|  q|  l|  i|  m| o| e|  p|
