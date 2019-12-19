@@ -1,0 +1,132 @@
+encrypted password: HCIKV RJOX
+
+load lvl_005_clue_char_0 buffer_0
+load lvl_005_clue_char_1 buffer_1
+load lvl_005_clue_char_2 buffer_2
+load lvl_005_clue_char_3 buffer_3
+load lvl_005_clue_char_4 buffer_4
+load lvl_005_clue_char_5 buffer_5
+
+frequency_analysis buffer_0
+frequency_analysis buffer_1
+frequency_analysis buffer_2
+frequency_analysis buffer_3
+frequency_analysis buffer_4
+frequency_analysis buffer_5
+
+*** breakup clues to 6 char frequency analysis with lvl_005_break_crypter_text_up.py
+
+char0:
+	Charnums and Frequencies: 
+	C| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	N| 0| 1| 2| 3| 4| 5| 6| 7| 8| 9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|
+	F| 6|21| 0|11| 0|45| 8|14|35|95|23|10|41|40| 1| 9|20|11|50|57|10| 0|37|29|55|21|
+	I|53| 9|18|27|82|14|13|39|45| 0| 5|26|15|43|48|12| 0|38|41|58|17| 6|15| 0|12| 0|
+
+	Guessed Letters, ctext => ptext: 
+	C| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	G| v| u| j| p| q| i| k| f| n| e| l| g| s| h| z| b| c| y| o| t| m| x| r| d| a| w|
+	Guessed letters, ptext => ctext: 
+	G| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	C| y| p| q| x| j| h| l| n| f| c| g| k| u| i| s| d| e| w| m| t| b| a| z| v| r| o|
+
+	abcdefghijklmnopqrstuvwxyz
+	vujpqikfnelgshzbcyotmxrdaw
+
+char1:
+	Charnums and Frequencies: 
+	C| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	N| 0| 1| 2| 3| 4| 5| 6| 7| 8| 9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|
+	F| 0| 5|25| 6|40|49| 9| 0|40|34|63|15| 4|24| 0|19| 0|54| 4|15|49|73|24|13|47|37|
+	I|53| 9|18|27|82|14|13|39|45| 0| 5|26|15|43|48|12| 0|38|41|58|17| 6|15| 0|12| 0|
+
+	Guessed Letters, ctext => ptext: 
+	C| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	G| j| k| l| v| h| o| b| q| s| f| t| m| p| d| x| c| z| a| y| w| n| e| u| g| i| r|
+	Guessed letters, ptext => ctext: 
+	G| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	C| r| g| p| n| v| j| x| e| y| a| b| c| l| u| f| m| h| z| i| k| w| d| t| o| s| q|
+
+	abcdefghijklmnopqrstuvwxyz
+	jklvhobqsftmpdxczaywneugir
+
+char2:
+	Charnums and Frequencies: 
+	C| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	N| 0| 1| 2| 3| 4| 5| 6| 7| 8| 9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|
+	F|22| 1|12| 0|42| 7|16|37|79|10|11|45|37| 1|10|27|14|37|66|10| 0|45|29|76|11| 4|
+	I|53| 9|18|27|82|14|13|39|45| 0| 5|26|15|43|48|12| 0|38|41|58|17| 6|15| 0|12| 0|
+
+	Guessed Letters, ctext => ptext: 
+	C| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	G| c| x| p| j| n| v| m| r| e| b| y| i| h| z| w| d| f| s| t| u| q| o| l| a| g| k|
+	Guessed letters, ptext => ctext: 
+	G| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	C| x| j| a| p| i| q| y| m| l| d| z| w| g| e| v| c| u| h| r| s| t| f| o| b| k| n|
+
+	abcdefghijklmnopqrstuvwxyz
+	cxpjnvmrebyihzwdfstuqolagk
+
+char3:
+	Charnums and Frequencies: 
+	C| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	N| 0| 1| 2| 3| 4| 5| 6| 7| 8| 9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|
+	F| 1|52|41|63|23| 2|24| 1|18| 0|59|13|16|39|81|12| 9|40|35| 2| 5|29| 8|31|37| 8|
+	I|53| 9|18|27|82|14|13|39|45| 0| 5|26|15|43|48|12| 0|38|41|58|17| 6|15| 0|12| 0|
+
+	Guessed Letters, ctext => ptext: 
+	C| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	G| q| a| s| o| u| z| l| x| c| j| t| g| m| h| e| p| b| n| i| f| k| d| v| w| r| y|
+	Guessed letters, ptext => ctext: 
+	G| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	C| b| q| i| v| o| t| l| n| s| j| u| g| m| r| d| p| a| y| c| k| e| w| x| h| z| f|
+
+	abcdefghijklmnopqrstuvwxyz
+	qasouzlxcjtgmhepbnifkdvwry
+
+char4:
+	Charnums and Frequencies: 
+	C| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	N| 0| 1| 2| 3| 4| 5| 6| 7| 8| 9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|
+	F|19| 0|10| 0|44| 8|17|23|84|14|12|47|39| 0| 8|29|14|38|56| 9| 0|39|44|67|23| 5|
+	I|53| 9|18|27|82|14|13|39|45| 0| 5|26|15|43|48|12| 0|38|41|58|17| 6|15| 0|12| 0|
+
+	Guessed Letters, ctext => ptext: 
+	C| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	G| c| j| y| q| i| v| u| l| e| f| p| o| h| x| m| d| g| r| t| b| z| s| n| a| w| k|
+	Guessed letters, ptext => ctext: 
+	G| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	C| x| t| a| p| i| j| q| m| e| b| z| h| o| w| l| k| d| r| v| s| g| f| y| n| c| u|
+
+	abcdefghijklmnopqrstuvwxyz
+	xtapijqmebzhowlkdrvsgfyncu
+
+char5:
+	Charnums and Frequencies: 
+	C| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	N| 0| 1| 2| 3| 4| 5| 6| 7| 8| 9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|
+	F| 8|38|92|15|10|51|25| 2|11|25|15|40|54| 9| 0|39|38|60|19| 4|18| 0|18| 0|51| 7|
+	I|53| 9|18|27|82|14|13|39|45| 0| 5|26|15|43|48|12| 0|38|41|58|17| 6|15| 0|12| 0|
+
+	Guessed Letters, ctext => ptext: 
+	C| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	G| g| r| e| m| y| o| l| z| p| d| w| s| a| b| j| h| n| t| f| k| c| q| u| x| i| v|
+	Guessed letters, ptext => ctext: 
+	G| a| b| c| d| e| f| g| h| i| j| k| l| m| n| o| p| q| r| s| t| u| v| w| x| y| z|
+	C| m| n| u| j| c| s| a| p| y| o| t| g| d| q| f| i| v| b| l| r| w| z| k| x| e| h|
+
+	abcdefghijklmnopqrstuvwxyz
+	gremyolzpdwsabjhntfkcquxiv
+
+*** search for max average diff between cipher and plain text for all 6 key character
+
+	char0: g, v
+	char1: i
+	char2: a, p
+	char3: p, z
+	char4: w, d, e, b, v
+	char5: i, b, r, g, o, v
+
+*** try to decrypt password with cipher key
+
+HCIKV RJOX
