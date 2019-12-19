@@ -5,3 +5,6 @@ CAESARISEASY
 
 ssh krypton4@krypton.labs.overthewire.org -p 2222
 BRUTE
+
+ssh krypton5@krypton.labs.overthewire.org -p 2222
+CLEARTEXT
