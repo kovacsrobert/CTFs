@@ -3,13 +3,13 @@ import sys
 
 def parse_input(key_length, files):
     string_output = ["" for x in range(key_length)]
-    print(f'keyLength: {key_length}')
-    print('')
+    # print(f'keyLength: {key_length}')
+    # print('')
     for file in files:
-        print(f'file: {file}')
+        # print(f'file: {file}')
         with open(file, "rt") as f:
-            output = f.read().lower()
-            print(f'output: {output}')
+            output = f.read().lower().replace(" ", "")
+            # print(f'output: {output}')
             for counter in range(key_length):
                 # print(f'counter: {counter}')
                 for i in range(int(len(output) / key_length) + 1):
@@ -22,7 +22,7 @@ def parse_input(key_length, files):
                     string_output[counter] += c
             # for counter in range(key_length):
             #     print(f'string_output[{counter}], length {len(string_output[counter])}: {string_output[counter]}')
-        print('')
+        # print('')
     return string_output
 
 
@@ -62,13 +62,13 @@ def find_e_letter_offsets(letter_input_list):
         best_cipher.append(offset_max_frequency_letter)
         # print('')
     # print('')
-    print(f'best_cipher: {best_cipher}')
+    # print(f'best_cipher: {best_cipher}')
     return best_cipher
 
 
 def decrypt(encrypted_text_list, cipher_letters):
     result = ''
-    print(f'decrypting: {encrypted_text_list}')
+    # print(f'decrypting: {encrypted_text_list}')
     for index in range(len(encrypted_text_list)):
         current_letter = encrypted_text_list[index]
         current_letter_cipher = cipher_letters[index % len(cipher_letters)]
@@ -79,6 +79,7 @@ def decrypt(encrypted_text_list, cipher_letters):
 if len(sys.argv) < 4:
     print('Usage: app.py keyLength encrypted_text inputFile [inputFile]')
 else:
-    decrypt_result = decrypt(list(sys.argv[2].lower().replace(" ", "")),
-                             find_e_letter_offsets(parse_input(int(sys.argv[1]), sys.argv[3:])))
-    print(f'decrypt_result: {decrypt_result}')
+    key_length_arg = int(sys.argv[1])
+    encrypted_text_arg = sys.argv[2].lower().replace(" ", "")
+    decrypt_result = decrypt(list(encrypted_text_arg), find_e_letter_offsets(parse_input(key_length_arg, sys.argv[3:])))
+    print(f"decrypt '{encrypted_text_arg}' with {key_length_arg} key_length: {decrypt_result}")
