@@ -92,3 +92,38 @@ If you have further difficulty, there is a hint in 'HINT2'.
 The password for level 7 (krypton7) is encrypted with 'encrypt6'.
 
 Good Luck!
+
+***
+
+The 'random' generator has a limited number of bits, and is periodic.
+Entropy analysis and a good look at the bytes in a hex editor will help.
+
+There is a pattern!
+
+***
+
+8 bit LFSR
+
+***
+
+a -> E - 1100001 -> 1000101
+b -> F - 1100010 -> 1000110
+aaaa -> EICT
+bbbb -> FJDU
+
+x & p = y
+
+1100001
+0100100
+1000101
+
+1100010
+0100100
+1000110
+
+
+echo -n -e aaaaaaaaaaaaaaa > /tmp/SWTqtIAdnj
+
+aaaaaaaaaaaaaaa -> EICTDGYIYZKTHNS
+AAAAAAAAAAAAAAA -> EICTDGYIYZKTHNS
+zzzzzzzzzzzzzzz -> DHBSCFXHXYJSGMR
