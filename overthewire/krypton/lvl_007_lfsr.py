@@ -23,8 +23,7 @@ else:
 	sourceFile = sys.argv[1]
 	targetFile = sys.argv[2]
 	with open(sourceFile, "rb") as f:
-		sourceBytes = f.read()
+		sourceBytes = f.read().lower()
 		encrypt_result = encryptWithLfsr(sourceBytes)
 		with open(targetFile, "wb") as f:
 			output = f.write(encrypt_result)
-	print(f'encryption done...')

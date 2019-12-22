@@ -127,3 +127,9 @@ echo -n -e aaaaaaaaaaaaaaa > /tmp/SWTqtIAdnj
 aaaaaaaaaaaaaaa -> EICTDGYIYZKTHNS
 AAAAAAAAAAAAAAA -> EICTDGYIYZKTHNS
 zzzzzzzzzzzzzzz -> DHBSCFXHXYJSGMR
+PNUKLYLWRQKGKBE -> TVWDOEJEPPUZROW
+TVWDOEJEPPUZROW -> XDYWRKHMNOESYBO
+
+python3 lvl_007_lfsr.py aaaaaaaaaaaaaaa EICTDGYIYZKTHNS PNUKLYLWRQKGKBE | less
+
+python3 lvl_007_decoder.py /home/rpd/workspace/CTFs/overthewire/krypton/lvl_007_lfsr.py /tmp/SWTqtIAdnj /tmp/SWTqtIAdnj2 PNUKLYLWRQKGKBE
