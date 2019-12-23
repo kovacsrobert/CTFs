@@ -11,3 +11,6 @@ CLEARTEXT
 
 ssh krypton6@krypton.labs.overthewire.org -p 2222
 RANDOM
+
+ssh krypton7@krypton.labs.overthewire.org -p 2222
+LFSRISNOTRANDOM

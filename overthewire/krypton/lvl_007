@@ -105,31 +105,3 @@ There is a pattern!
 8 bit LFSR
 
 ***
-
-a -> E - 1100001 -> 1000101
-b -> F - 1100010 -> 1000110
-aaaa -> EICT
-bbbb -> FJDU
-
-x & p = y
-
-1100001
-0100100
-1000101
-
-1100010
-0100100
-1000110
-
-
-echo -n -e aaaaaaaaaaaaaaa > /tmp/SWTqtIAdnj
-
-aaaaaaaaaaaaaaa -> EICTDGYIYZKTHNS
-AAAAAAAAAAAAAAA -> EICTDGYIYZKTHNS
-zzzzzzzzzzzzzzz -> DHBSCFXHXYJSGMR
-PNUKLYLWRQKGKBE -> TVWDOEJEPPUZROW
-TVWDOEJEPPUZROW -> XDYWRKHMNOESYBO
-
-python3 lvl_007_lfsr.py aaaaaaaaaaaaaaa EICTDGYIYZKTHNS PNUKLYLWRQKGKBE | less
-
-python3 lvl_007_decoder.py /home/rpd/workspace/CTFs/overthewire/krypton/lvl_007_lfsr.py /tmp/SWTqtIAdnj /tmp/SWTqtIAdnj2 PNUKLYLWRQKGKBE
