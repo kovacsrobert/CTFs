@@ -1,0 +1,1500 @@
+
+************************************************* 00/ba81bd54c79a5e712435ee9ecd2b2d8585917c
+
+require "./src/*"
+require "sqlite3"
+
+`rm -rf data.db`
+DB.open "sqlite3://./data.db" do |db|
+    db.exec "CREATE TABLE accounts (id text primary key, pass text);"
+end
+
+
+Kemal::Session.config.secret = ENV["session_secret"]
+Kemal.run
+
+************************************************* 02/d365359d84a5d4f4317fa3549fe073a024c502
+
+require "./src/*"
+require "sqlite3"
+require "zlib"
+
+flag = File.open("./flag", "r") do |f|
+    Zlib::Reader.open(f) do |inflate|
+        inflate.gets_to_end
+    end
+end
+
+`rm -rf data.db`
+DB.open "sqlite3://./data.db" do |db|
+    db.exec "CREATE TABLE accounts (id text primary key, pass text);"
+    db.exec "INSERT INTO accounts VALUES ('admin', '#{flag}');"
+end
+
+Kemal.config.env = "production"
+Kemal::Session.config.secret = ENV["session_secret"]
+Kemal.run
+
+************************************************* 07/2690c0aaf46bc7875b67d6323b8f8d2074aaca
+
+tree 7edb96cb41cbfea869dabc7de625a5e50abd71ea
+parent 164349386f4522b1cdee775e63761d57eacbf66a
+author tsgctf <info@tsg.ne.jp> 1556971011 +0900
+committer tsgctf <info@tsg.ne.jp> 1556971011 +0900
+
+enable production mode
+
+
+************************************************* 0b/02e2f465e326a2fb4327a1ed2a64ed95084ee6
+
+name: easy_web
+version: 0.1.0
+
+authors:
+  - tsgctf <info@tsg.ne.jp>
+
+targets:
+  easy_web:
+    main: main.cr
+
+crystal: 0.25.1
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+    branch: master
+
+
+************************************************* 0b/b75ea03f73a8764f724a990b6145f0b929c3f8
+
+/docs/
+/lib/
+/bin/
+/.shards/
+*.dwarf
+
+
+************************************************* 0d/84bf0607785e59be1448379961ec8064b4d92e
+
+require "kemal"
+
+get "/" do |env|
+    name = env.params.query["name"] rescue "World"
+    render "views/index.ecr", "views/layout.ecr"
+end
+
+get "/source" do |env|
+    send_file env, __FILE__, "text/plain"
+end
+
+Kemal.run
+
+************************************************* 0d/c0e23010600ab04db1cfef617b35cb9a808668
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob 0bb75ea03f73a8764f724a990b6145f0b929c3f8	.gitignore
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 60723b12e68c53e802729604a16931e74f000e81	README.md
+100644 blob 9f88382a6895bd951d953155960c0ed5a8612303	main.cr
+100644 blob 79e09050a3fab6a7c8002ddecd9ba97e1ba6e01f	shard.lock
+100644 blob 2d412b10aefe0f80e26536c8ec1a58d4b30df1bf	shard.yml
+040000 tree 76d6409dbcb16c8282b966f2c0491c02364fcf7b	views
+
+
+************************************************* 0f/0a48cede1c8edb37b9449b7de0eb28402db1fc
+
+tree 4b1026ccafd4c79a70a10b46c5531fc331e92b6a
+parent 166baf8b5abaf404923426c08199e7396628e759
+author tsgctf <info@tsg.ne.jp> 1556621320 +0900
+committer tsgctf <info@tsg.ne.jp> 1556624015 +0900
+
+implement /source
+
+
+************************************************* 11/32b19fe615106585d0a4d73a1d2caebf213b1c
+
+tree 484d7614db417d10ab3116c9ce11d03b6d380f14
+parent 8316c40ce4f952bd9a10bf53921eb1039820d403
+author tsgctf <info@tsg.ne.jp> 1556970749 +0900
+committer tsgctf <info@tsg.ne.jp> 1556970749 +0900
+
+made solvable
+
+
+************************************************* 15/7d2e555e663ffb6e203a4ecc62a9e599e259ab
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 6eec6e57cc9eb5aa67f09fb73bdb3b933d7fdded	README.md
+040000 tree 6361c720b6a55eb93f42cd57a48cc27805442a53	problem
+
+
+************************************************* 16/3eb75c85257e212368c0694a2947ebcd4c9bcc
+
+root = true
+
+[*.cr]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+
+
+************************************************* 16/4349386f4522b1cdee775e63761d57eacbf66a
+
+tree 157d2e555e663ffb6e203a4ecc62a9e599e259ab
+parent c4b2408b3646bb0d2d05b639b4d99b009815c97e
+author tsgctf <info@tsg.ne.jp> 1556970962 +0900
+committer tsgctf <info@tsg.ne.jp> 1556970962 +0900
+
+small fix && add readme
+
+
+************************************************* 16/6baf8b5abaf404923426c08199e7396628e759
+
+tree 91a3b5d486e8cce94c981e459db47a2fa4497e1b
+parent 4801d6ec013679a4cd8353812fa9502418ba6237
+author tsgctf <info@tsg.ne.jp> 1556617293 +0900
+committer tsgctf <info@tsg.ne.jp> 1556617293 +0900
+
+add views
+
+
+************************************************* 18/799361bcac695368b53df8847b57ba34967a50
+
+require "kemal"
+
+get "/" do |env|
+    name = env.params.query["name"] rescue "World"
+    render "views/index.ecr", "views/layout.ecr"
+end
+
+Kemal.run
+
+************************************************* 1c/80e25f51797b19dfbdeb0e2831ebd9bba64ab8
+
+tree d0ca60424dc0174f1e3eb142a508a205e0df8df7
+parent 353d6ab1d16539043e9bef6743db1f7bc6a02391
+author tsgctf <info@tsg.ne.jp> 1556971011 +0900
+committer tsgctf <info@tsg.ne.jp> 1556971011 +0900
+
+enable production mode
+
+
+************************************************* 1f/34928d090b69867f664dcbef276d53a29483cc
+
+100644 blob 94ae2db65e3dc2365cdc8136dececdbc35374adc	.gitignore
+100644 blob dd46f3189d012d72738a6aa20358581d71945bca	README.md
+100644 blob c1e375244c834c08d537d564e2763a7b92d5f9a8	flag
+100644 blob ebc4754f23719c17eedf24af0187be86b52e71d2	main.cr
+100644 blob a56e0143927a72fee0c6f00618442def5cd60fac	shard.lock
+100644 blob d3a384c81e3e530ad97719e80b8223ed7754a4a2	shard.yml
+040000 tree 69c2b0afdb2a14797f43e4424dc06cc6202bea1f	src
+
+
+************************************************* 20/7cef168362ac985a373f49fdbcf1d29035b6fb
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob 0bb75ea03f73a8764f724a990b6145f0b929c3f8	.gitignore
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 2ff872c5b6173fdb325f89c90b251daebf91092c	README.md
+100644 blob f87f5c14cbbd7d462ab7c5ed4f7b4b822d3254a4	main.cr
+100644 blob 0b02e2f465e326a2fb4327a1ed2a64ed95084ee6	shard.yml
+
+
+************************************************* 23/c5b636f8501a098860f40e56b2beb29d5fa410
+
+100644 blob a416178f93b9276bfcfd300dc196e1952e717331	app.cr
+040000 tree d756753ddde35b336989129b46062c22e97d0e38	public
+040000 tree 2c6881340dd54ea0fbc6013da69701adf77cd80f	views
+
+
+************************************************* 27/b5ce64362f03ef9a7f044e677fba81ab47544b
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 6eec6e57cc9eb5aa67f09fb73bdb3b933d7fdded	README.md
+040000 tree 1f34928d090b69867f664dcbef276d53a29483cc	problem
+
+
+************************************************* 2a/ea982ed4eb63a835ce71322379720fb45e3a7a
+
+100644 blob 94ae2db65e3dc2365cdc8136dececdbc35374adc	.gitignore
+100644 blob c1e375244c834c08d537d564e2763a7b92d5f9a8	flag
+100644 blob ebc4754f23719c17eedf24af0187be86b52e71d2	main.cr
+100644 blob a56e0143927a72fee0c6f00618442def5cd60fac	shard.lock
+100644 blob d3a384c81e3e530ad97719e80b8223ed7754a4a2	shard.yml
+040000 tree 34b46ad3604df653c93fcede1b7e2c546a748032	src
+
+
+************************************************* 2c/6881340dd54ea0fbc6013da69701adf77cd80f
+
+100644 blob 567458274957b016d5016532662137022b650439	index.ecr
+100644 blob 798fae498457783788a70719f5176d7542c10e72	layout.ecr
+100644 blob d0750a2659e0c89c3e61a2c6d8573c52adafe860	login.ecr
+100644 blob a0f3b51d97779b176407ff04686cdc6105851799	register.ecr
+
+
+************************************************* 2d/412b10aefe0f80e26536c8ec1a58d4b30df1bf
+
+name: easy_web
+version: 0.1.0
+
+authors:
+  - tsgctf <info@tsg.ne.jp>
+
+targets:
+  easy_web:
+    main: main.cr
+
+crystal: 0.28.0
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+    branch: master
+  kemal-session:
+    github: kemalcr/kemal-session
+
+
+************************************************* 2f/f872c5b6173fdb325f89c90b251daebf91092c
+
+# easy_web
+
+TODO: Write a description here
+
+## Installation
+
+TODO: Write installation instructions here
+
+## Usage
+
+TODO: Write usage instructions here
+
+## Development
+
+TODO: Write development instructions here
+
+## Contributing
+
+1. Fork it (<https://github.com/your-github-user/easy_web/fork>)
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
+
+## Contributors
+
+- [your-github-user](https://github.com/your-github-user) taiyoslime - creator, maintainer
+
+
+************************************************* 34/b46ad3604df653c93fcede1b7e2c546a748032
+
+100644 blob 77248329a5e663f2ac278c095f113d27b4e8f8be	app.cr
+040000 tree d756753ddde35b336989129b46062c22e97d0e38	public
+040000 tree 2c6881340dd54ea0fbc6013da69701adf77cd80f	views
+
+
+************************************************* 35/3d6ab1d16539043e9bef6743db1f7bc6a02391
+
+tree 27b5ce64362f03ef9a7f044e677fba81ab47544b
+parent 78036f3e858975d2c574d81ba6c3a6f57573314a
+author tsgctf <info@tsg.ne.jp> 1556970962 +0900
+committer tsgctf <info@tsg.ne.jp> 1556970962 +0900
+
+small fix && add readme
+
+
+************************************************* 36/659906848b844b0ac530a4efd3dc646fd3f7b2
+
+<% if id %>
+    <form action="/logout" method="post">
+        <input type="submit" value="logout">
+    </form>
+<% else %>
+    <form action="/login" method="post">
+        <input type="text" name="id">
+        <input type="text" name="pass">
+        <input type="submit" value="login">
+    </form>
+<% end %>
+<%= message %>
+<a href="/source">source code</a>
+
+************************************************* 37/a62992ec0d4c83df1d6952933c0afaa135d6a8
+
+100644 blob 94ae2db65e3dc2365cdc8136dececdbc35374adc	.gitignore
+100644 blob dd46f3189d012d72738a6aa20358581d71945bca	README.md
+100644 blob 02d365359d84a5d4f4317fa3549fe073a024c502	main.cr
+100644 blob a56e0143927a72fee0c6f00618442def5cd60fac	shard.lock
+100644 blob d3a384c81e3e530ad97719e80b8223ed7754a4a2	shard.yml
+040000 tree 69c2b0afdb2a14797f43e4424dc06cc6202bea1f	src
+
+
+************************************************* 43/988cd07d60aa41f61e6e2421156068b3f8632b
+
+100644 blob 567458274957b016d5016532662137022b650439	index.ecr
+100644 blob 956542f28d8010bc0ceec6ae9dfdb84e49fa2d2b	layout.ecr
+100644 blob d0750a2659e0c89c3e61a2c6d8573c52adafe860	login.ecr
+100644 blob a0f3b51d97779b176407ff04686cdc6105851799	register.ecr
+
+
+************************************************* 48/01d6ec013679a4cd8353812fa9502418ba6237
+
+tree a63dcfb386a4b30e3a1d85641cfb1aae8ecbbb5c
+parent d3953a7e9d5e89a07f767851721c09b543fe1a9b
+author tsgctf <info@tsg.ne.jp> 1556615949 +0900
+committer tsgctf <info@tsg.ne.jp> 1556615949 +0900
+
+add dependency: kemal
+
+
+************************************************* 48/4d7614db417d10ab3116c9ce11d03b6d380f14
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob 94ae2db65e3dc2365cdc8136dececdbc35374adc	.gitignore
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 60723b12e68c53e802729604a16931e74f000e81	README.md
+100644 blob ebc4754f23719c17eedf24af0187be86b52e71d2	main.cr
+100644 blob a56e0143927a72fee0c6f00618442def5cd60fac	shard.lock
+100644 blob d3a384c81e3e530ad97719e80b8223ed7754a4a2	shard.yml
+040000 tree 34b46ad3604df653c93fcede1b7e2c546a748032	src
+
+
+************************************************* 4b/1026ccafd4c79a70a10b46c5531fc331e92b6a
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob 0bb75ea03f73a8764f724a990b6145f0b929c3f8	.gitignore
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 60723b12e68c53e802729604a16931e74f000e81	README.md
+100644 blob 0d84bf0607785e59be1448379961ec8064b4d92e	main.cr
+100644 blob d630e501eea771f59769592170cdc0bf2d741ae6	shard.lock
+100644 blob 89db2e6e905c3036b53672b3c3bc9fad472fa368	shard.yml
+040000 tree ff42cc4a1974e58b02772f401321ba3f57846e38	views
+
+
+************************************************* 50/1072473b04d8d2eaf05d13cc71fa2568ec3d6c
+
+require "kemal"
+require "kemal-session"
+require "sqlite3"
+
+error 404 do |env|
+    env.redirect "/"
+end
+
+get "/" do |env|
+    id = env.session.string("id") rescue nil
+    message = id ? "Hello, #{id}" : "Please login."
+    render "src/views/index.ecr", "src/views/layout.ecr"
+end
+
+get "/register" do |env|
+    message = ""
+    render "src/views/register.ecr", "src/views/layout.ecr"
+end
+
+post "/register" do |env|
+    id = env.params.body["id"].as(String) rescue nil
+    pass = env.params.body["pass"].as(String) rescue nil
+    unless id && pass
+        message = "invalid request"
+        render "src/views/index.ecr", "src/views/layout.ecr"
+    else
+        begin
+            DB.open "sqlite3://./data.db" do |db|
+                db.exec "INSERT INTO accounts VALUES (?,?);", id, pass
+            end
+        rescue
+            message = "id already taken"
+            render "src/views/register.ecr", "src/views/layout.ecr"
+        else
+            env.redirect "/"
+        end
+    end
+
+end
+
+get "/login" do |env|
+    message = ""
+    render "src/views/login.ecr", "src/views/layout.ecr"
+end
+
+post "/login" do |env|
+    id = env.params.body["id"].as(String) rescue nil
+    pass = env.params.body["pass"].as(String) rescue nil
+    if id && pass
+        env.session.string("id", id)
+        env.redirect "/"
+    end
+end
+
+post "/logout" do |env|
+    env.session.destroy
+    env.redirect "/"
+end
+
+get "/source" do |env|
+    send_file env, __FILE__, "text/plain"
+end
+
+
+
+************************************************* 51/422bc8c729b297e89be5028b080d37f5fa71e8
+
+100644 blob a5f2f7907b07430751f2707bf7d12d5cd9bd7be2	index.ecr
+100644 blob 8a5cd16517aacf3b150620f6c5347d8e27ef47dc	layout.ecr
+
+
+************************************************* 56/7458274957b016d5016532662137022b650439
+
+<% if id %>
+    <form action="/logout" method="post">
+        <input type="submit" value="logout">
+    </form>
+<% else %>
+    <input type="button" onclick="location.href='./login'" value="login">
+    <input type="button" onclick="location.href='./register'" value="register">
+<% end %>
+
+
+
+
+************************************************* 56/fced572a5abc13cf60a8a49a19d5af87f61d87
+
+100644 blob 501072473b04d8d2eaf05d13cc71fa2568ec3d6c	app.cr
+040000 tree 2c6881340dd54ea0fbc6013da69701adf77cd80f	views
+
+
+************************************************* 5c/6f3673d687b416b32cd6d1d49d85da60c66950
+
+100644 blob e9441ab4fc0a169d8482e76da4b9f55a6caa5823	app.cr
+040000 tree 76d6409dbcb16c8282b966f2c0491c02364fcf7b	views
+
+
+************************************************* 5e/1b13226968864981f768dd68bb3a5141f10b26
+
+100644 blob 94ae2db65e3dc2365cdc8136dececdbc35374adc	.gitignore
+100644 blob ebc4754f23719c17eedf24af0187be86b52e71d2	main.cr
+100644 blob a56e0143927a72fee0c6f00618442def5cd60fac	shard.lock
+100644 blob d3a384c81e3e530ad97719e80b8223ed7754a4a2	shard.yml
+040000 tree 34b46ad3604df653c93fcede1b7e2c546a748032	src
+
+
+************************************************* 60/723b12e68c53e802729604a16931e74f000e81
+
+# easy_web
+
+TODO: Write a description here
+
+## Usage
+
+TODO: Write usage instructions here
+
+
+************************************************* 62/062f1afde0d9ae9b4d91781780dd615c6448f9
+
+require "kemal"
+require "kemal-session"
+require "sqlite3"
+
+error 404 do |env|
+    env.redirect "/"
+end
+
+get "/" do |env|
+    id = env.session.string("id") rescue nil
+    message = id ? "Hello, #{id}" : "Please login."
+    render "src/views/index.ecr", "src/views/layout.ecr"
+end
+
+get "/register" do |env|
+    message = ""
+    render "src/views/register.ecr", "src/views/layout.ecr"
+end
+
+post "/register" do |env|
+    id = env.params.body["id"].as(String)
+    pass = env.params.body["pass"].as(String)
+    if id == "" ||  pass == ""
+        message = "invalid request"
+        render "src/views/index.ecr", "src/views/layout.ecr"
+    else
+        begin
+            DB.open "sqlite3://./data.db" do |db|
+                db.exec "INSERT INTO accounts VALUES (?,?);", id, pass
+            end
+        rescue
+            message = "id already taken"
+            render "src/views/register.ecr", "src/views/layout.ecr"
+        else
+            env.redirect "/"
+        end
+    end
+
+end
+
+get "/login" do |env|
+    message = ""
+    render "src/views/login.ecr", "src/views/layout.ecr"
+end
+
+post "/login" do |env|
+    id = env.params.body["id"].as(String)
+    pass = env.params.body["pass"].as(String)
+    result = [] of {String}
+    begin
+        DB.open "sqlite3://./data.db" do |db|
+            result = db.query_one "SELECT id FROM accounts where id=? and pass=?", id, pass, as: {String}
+        end
+    rescue
+        message = "Not Found"
+        render "src/views/login.ecr", "src/views/layout.ecr"
+    else
+        env.session.string("id", id)
+        env.redirect "/"
+    end
+end
+
+post "/logout" do |env|
+    env.session.destroy
+    env.redirect "/"
+end
+
+get "/source" do |env|
+    send_file env, __FILE__, "text/plain"
+end
+
+
+
+************************************************* 63/61c720b6a55eb93f42cd57a48cc27805442a53
+
+100644 blob 94ae2db65e3dc2365cdc8136dececdbc35374adc	.gitignore
+100644 blob dd46f3189d012d72738a6aa20358581d71945bca	README.md
+100644 blob ebc4754f23719c17eedf24af0187be86b52e71d2	main.cr
+100644 blob a56e0143927a72fee0c6f00618442def5cd60fac	shard.lock
+100644 blob d3a384c81e3e530ad97719e80b8223ed7754a4a2	shard.yml
+040000 tree 69c2b0afdb2a14797f43e4424dc06cc6202bea1f	src
+
+
+************************************************* 67/54b81daa8414ea07475e5350f2d54c7523b989
+
+100644 blob abf4339ce17591e3712d2dc375864493c82d207b	app.cr
+040000 tree 2c6881340dd54ea0fbc6013da69701adf77cd80f	views
+
+
+************************************************* 67/960090c674d6d824da50dfd45d8f12d83786e6
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob fa7b6981166dcad181464007968ddf2c44b88973	.gitignore
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 60723b12e68c53e802729604a16931e74f000e81	README.md
+100644 blob 00ba81bd54c79a5e712435ee9ecd2b2d8585917c	main.cr
+100644 blob a56e0143927a72fee0c6f00618442def5cd60fac	shard.lock
+100644 blob d3a384c81e3e530ad97719e80b8223ed7754a4a2	shard.yml
+040000 tree 23c5b636f8501a098860f40e56b2beb29d5fa410	src
+
+
+************************************************* 69/c2b0afdb2a14797f43e4424dc06cc6202bea1f
+
+100644 blob 77248329a5e663f2ac278c095f113d27b4e8f8be	app.cr
+040000 tree d756753ddde35b336989129b46062c22e97d0e38	public
+040000 tree 43988cd07d60aa41f61e6e2421156068b3f8632b	views
+
+
+************************************************* 6b/4cbce5f389a45bc849f07fa5c17a8b7f43f005
+
+tree cd7068e30ead3aa205f7bc8c73e1caa8854221a3
+parent bff308624444eed4cac43b0d432a92d2d350fcfb
+author tsgctf <info@tsg.ne.jp> 1556653182 +0900
+committer tsgctf <info@tsg.ne.jp> 1556653182 +0900
+
+fix /login
+
+
+************************************************* 6e/ec6e57cc9eb5aa67f09fb73bdb3b933d7fdded
+
+# easy_web
+
+## Problem Statement
+
+The flag is admin's password.
+
+
+************************************************* 72/e3d57df672e811ef56d4fa993a71da33a1de91
+
+require "kemal"
+
+get "/" do
+  "Hello World!"
+end
+
+Kemal.run
+
+************************************************* 74/59ce4ad03f11e4f9aae544274766edd675fe11
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 6eec6e57cc9eb5aa67f09fb73bdb3b933d7fdded	README.md
+040000 tree 2aea982ed4eb63a835ce71322379720fb45e3a7a	problem
+
+
+************************************************* 76/d6409dbcb16c8282b966f2c0491c02364fcf7b
+
+100644 blob 36659906848b844b0ac530a4efd3dc646fd3f7b2	index.ecr
+100644 blob 8a5cd16517aacf3b150620f6c5347d8e27ef47dc	layout.ecr
+
+
+************************************************* 77/248329a5e663f2ac278c095f113d27b4e8f8be
+
+require "kemal"
+require "kemal-session"
+require "sqlite3"
+
+error 404 do |env|
+    env.redirect "/"
+end
+
+get "/" do |env|
+    id = env.session.string("id") rescue nil
+    message = id ? "Hello, #{id}" : "Please login."
+    render "src/views/index.ecr", "src/views/layout.ecr"
+end
+
+get "/register" do |env|
+    message = ""
+    render "src/views/register.ecr", "src/views/layout.ecr"
+end
+
+post "/register" do |env|
+    id = env.params.body["id"].as(String)
+    pass = env.params.body["pass"].as(String)
+    if id == "" ||  pass == ""
+        message = "invalid request"
+        render "src/views/register.ecr", "src/views/layout.ecr"
+    elsif id.size > 16 || pass.size > 24
+        message = "Sorry, id or password is too long."
+        render "src/views/register.ecr", "src/views/layout.ecr"
+    else
+        begin
+            DB.open "sqlite3://./data.db" do |db|
+                db.exec "INSERT INTO accounts VALUES ('#{id}','#{pass}');"
+            end
+        rescue
+            message = "id already taken"
+            render "src/views/register.ecr", "src/views/layout.ecr"
+        else
+            env.redirect "/"
+        end
+    end
+end
+
+get "/login" do |env|
+    message = ""
+    render "src/views/login.ecr", "src/views/layout.ecr"
+end
+
+post "/login" do |env|
+    id = env.params.body["id"].as(String)
+    pass = env.params.body["pass"].as(String)
+    result = [] of {String}
+    if id.size > 16 || pass.size > 24
+        message = "Sorry, id or password is too long."
+        render "src/views/login.ecr", "src/views/layout.ecr"
+    else
+        begin
+            puts id , pass
+            DB.open "sqlite3://./data.db" do |db|
+                result = db.query_one "SELECT id FROM accounts where id='#{id}' and pass='#{pass}';", as: {String}
+            end
+        rescue
+            message = "Not Found"
+            render "src/views/login.ecr", "src/views/layout.ecr"
+        else
+            env.session.string("id", id)
+            env.redirect "/"
+        end
+    end
+end
+
+post "/logout" do |env|
+    env.session.destroy
+    env.redirect "/"
+end
+
+get "/source" do |env|
+    send_file env, __FILE__, "text/plain"
+end
+
+************************************************* 78/036f3e858975d2c574d81ba6c3a6f57573314a
+
+tree 7459ce4ad03f11e4f9aae544274766edd675fe11
+parent afafedc82152dd8f38497ae1b17bedd7b647e062
+author tsgctf <info@tsg.ne.jp> 1556970883 +0900
+committer tsgctf <info@tsg.ne.jp> 1556970883 +0900
+
+add problem statement
+
+
+************************************************* 79/8fae498457783788a70719f5176d7542c10e72
+
+<html>
+<head>
+    <title>My First Kemal Application</title>
+</head>
+<body>
+      <%= content %>
+      <%= message %>
+      <a href="/source">source code</a>
+</body>
+</html>
+
+************************************************* 79/e09050a3fab6a7c8002ddecd9ba97e1ba6e01f
+
+version: 1.0
+shards:
+  exception_page:
+    github: crystal-loot/exception_page
+    version: 0.1.2
+
+  kemal:
+    github: kemalcr/kemal
+    commit: 5267555322bf17376bb262fa881d915abbe7f5b3
+
+  kemal-session:
+    github: kemalcr/kemal-session
+    version: 0.11.1
+
+  kilt:
+    github: jeromegn/kilt
+    version: 0.4.0
+
+  radix:
+    github: luislavena/radix
+    version: 0.3.9
+
+
+
+************************************************* 7d/dff67ab554b53d00d00ae91a3b4c36578b37f0
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob 0bb75ea03f73a8764f724a990b6145f0b929c3f8	.gitignore
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 60723b12e68c53e802729604a16931e74f000e81	README.md
+100644 blob c29410cbe0e08299c0f0ee8085642bd24a838485	main.cr
+100644 blob 79e09050a3fab6a7c8002ddecd9ba97e1ba6e01f	shard.lock
+100644 blob 2d412b10aefe0f80e26536c8ec1a58d4b30df1bf	shard.yml
+040000 tree 76d6409dbcb16c8282b966f2c0491c02364fcf7b	views
+
+
+************************************************* 7e/db96cb41cbfea869dabc7de625a5e50abd71ea
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 6eec6e57cc9eb5aa67f09fb73bdb3b933d7fdded	README.md
+040000 tree 37a62992ec0d4c83df1d6952933c0afaa135d6a8	problem
+
+
+************************************************* 82/8b54e76c9ee94b1d9a478aef792726c60a01bc
+
+tree 0dc0e23010600ab04db1cfef617b35cb9a808668
+parent 0f0a48cede1c8edb37b9449b7de0eb28402db1fc
+author tsgctf <info@tsg.ne.jp> 1556623797 +0900
+committer tsgctf <info@tsg.ne.jp> 1556624034 +0900
+
+implement login & logout logic
+
+
+************************************************* 83/16c40ce4f952bd9a10bf53921eb1039820d403
+
+tree 67960090c674d6d824da50dfd45d8f12d83786e6
+parent 6b4cbce5f389a45bc849f07fa5c17a8b7f43f005
+author tsgctf <info@tsg.ne.jp> 1556967707 +0900
+committer tsgctf <info@tsg.ne.jp> 1556967707 +0900
+
+little fix
+
+
+************************************************* 89/db2e6e905c3036b53672b3c3bc9fad472fa368
+
+name: easy_web
+version: 0.1.0
+
+authors:
+  - tsgctf <info@tsg.ne.jp>
+
+targets:
+  easy_web:
+    main: main.cr
+
+crystal: 0.28.0
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+    branch: master
+
+
+************************************************* 8a/5cd16517aacf3b150620f6c5347d8e27ef47dc
+
+<html>
+<head>
+    <title>My First Kemal Application</title>
+</head>
+<body>
+      <%= content %>
+</body>
+</html>
+
+************************************************* 91/a3b5d486e8cce94c981e459db47a2fa4497e1b
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob 0bb75ea03f73a8764f724a990b6145f0b929c3f8	.gitignore
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 2ff872c5b6173fdb325f89c90b251daebf91092c	README.md
+100644 blob 18799361bcac695368b53df8847b57ba34967a50	main.cr
+100644 blob d630e501eea771f59769592170cdc0bf2d741ae6	shard.lock
+100644 blob 89db2e6e905c3036b53672b3c3bc9fad472fa368	shard.yml
+040000 tree 51422bc8c729b297e89be5028b080d37f5fa71e8	views
+
+
+************************************************* 94/ae2db65e3dc2365cdc8136dececdbc35374adc
+
+/docs/
+/lib/
+/bin/
+/.shards/
+*.dwarf
+*.db
+falg
+
+************************************************* 95/6542f28d8010bc0ceec6ae9dfdb84e49fa2d2b
+
+<html>
+<body>
+      <%= content %>
+      <%= message %>
+      <a href="/source">source code</a>
+</body>
+</html>
+
+************************************************* 97/fe1a6ab46a57cfa8043a17395b2501332c2436
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob 0bb75ea03f73a8764f724a990b6145f0b929c3f8	.gitignore
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 60723b12e68c53e802729604a16931e74f000e81	README.md
+100644 blob a2cdcc183cceecbc5a0f8532245e608b90c6340f	main.cr
+100644 blob 79e09050a3fab6a7c8002ddecd9ba97e1ba6e01f	shard.lock
+100644 blob 2d412b10aefe0f80e26536c8ec1a58d4b30df1bf	shard.yml
+040000 tree 5c6f3673d687b416b32cd6d1d49d85da60c66950	src
+
+
+************************************************* 9f/88382a6895bd951d953155960c0ed5a8612303
+
+require "kemal"
+require "kemal-session"
+
+Kemal::Session.config.secret = ENV["session_secret"]
+
+get "/" do |env|
+    id = env.session.string("id") rescue nil
+    message = id ? "Hello, #{id}" : "Please login."
+    render "views/index.ecr", "views/layout.ecr"
+end
+
+post "/login" do |env|
+    id = env.params.body["id"].as(String) rescue ""
+    pass = env.params.body["pass"].as(String) rescue ""
+    if id && pass
+        env.session.string("id", id)
+        env.redirect "/"
+    end
+end
+
+post "/logout" do |env|
+    env.session.destroy
+    env.redirect "/"
+end
+
+get "/source" do |env|
+    send_file env, __FILE__, "text/plain"
+end
+
+Kemal.run
+
+************************************************* a0/f3b51d97779b176407ff04686cdc6105851799
+
+<form action="/register" method="post">
+    <input type="text" name="id">
+    <input type="text" name="pass">
+    <input type="submit" value="register">
+</form>
+
+
+************************************************* a2/cdcc183cceecbc5a0f8532245e608b90c6340f
+
+require "./src/*"
+
+Kemal::Session.config.secret = ENV["session_secret"]
+Kemal.run
+
+************************************************* a4/16178f93b9276bfcfd300dc196e1952e717331
+
+require "kemal"
+require "kemal-session"
+require "sqlite3"
+
+error 404 do |env|
+    env.redirect "/"
+end
+
+get "/" do |env|
+    id = env.session.string("id") rescue nil
+    message = id ? "Hello, #{id}" : "Please login."
+    render "src/views/index.ecr", "src/views/layout.ecr"
+end
+
+get "/register" do |env|
+    message = ""
+    render "src/views/register.ecr", "src/views/layout.ecr"
+end
+
+post "/register" do |env|
+    id = env.params.body["id"].as(String)
+    pass = env.params.body["pass"].as(String)
+    if id == "" ||  pass == ""
+        message = "invalid request"
+        render "src/views/index.ecr", "src/views/layout.ecr"
+    else
+        begin
+            DB.open "sqlite3://./data.db" do |db|
+                db.exec "INSERT INTO accounts VALUES (?,?);", id, pass
+            end
+        rescue
+            message = "id already taken"
+            render "src/views/register.ecr", "src/views/layout.ecr"
+        else
+            env.redirect "/"
+        end
+    end
+end
+
+get "/login" do |env|
+    message = ""
+    render "src/views/login.ecr", "src/views/layout.ecr"
+end
+
+post "/login" do |env|
+    id = env.params.body["id"].as(String)
+    pass = env.params.body["pass"].as(String)
+    result = [] of {String}
+    begin
+        DB.open "sqlite3://./data.db" do |db|
+            result = db.query_one "SELECT id FROM accounts where id=? and pass=?;", id, pass, as: {String}
+        end
+    rescue
+        message = "Not Found"
+        render "src/views/login.ecr", "src/views/layout.ecr"
+    else
+        env.session.string("id", id)
+        env.redirect "/"
+    end
+end
+
+post "/logout" do |env|
+    env.session.destroy
+    env.redirect "/"
+end
+
+get "/source" do |env|
+    send_file env, __FILE__, "text/plain"
+end
+
+
+
+************************************************* a5/6e0143927a72fee0c6f00618442def5cd60fac
+
+version: 1.0
+shards:
+  db:
+    github: crystal-lang/crystal-db
+    version: 0.5.1
+
+  exception_page:
+    github: crystal-loot/exception_page
+    version: 0.1.2
+
+  kemal:
+    github: kemalcr/kemal
+    commit: 5267555322bf17376bb262fa881d915abbe7f5b3
+
+  kemal-session:
+    github: kemalcr/kemal-session
+    version: 0.11.1
+
+  kilt:
+    github: jeromegn/kilt
+    version: 0.4.0
+
+  radix:
+    github: luislavena/radix
+    version: 0.3.9
+
+  sqlite3:
+    github: crystal-lang/crystal-sqlite3
+    version: 0.11.0
+
+
+
+************************************************* a5/f2f7907b07430751f2707bf7d12d5cd9bd7be2
+
+Hello <%= name %>
+
+************************************************* a6/3dcfb386a4b30e3a1d85641cfb1aae8ecbbb5c
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob 0bb75ea03f73a8764f724a990b6145f0b929c3f8	.gitignore
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 2ff872c5b6173fdb325f89c90b251daebf91092c	README.md
+100644 blob 72e3d57df672e811ef56d4fa993a71da33a1de91	main.cr
+100644 blob d630e501eea771f59769592170cdc0bf2d741ae6	shard.lock
+100644 blob 89db2e6e905c3036b53672b3c3bc9fad472fa368	shard.yml
+
+
+************************************************* ab/f4339ce17591e3712d2dc375864493c82d207b
+
+require "kemal"
+require "kemal-session"
+require "sqlite3"
+
+error 404 do |env|
+    env.redirect "/"
+end
+
+get "/" do |env|
+    id = env.session.string("id") rescue nil
+    message = id ? "Hello, #{id}" : "Please login."
+    render "src/views/index.ecr", "src/views/layout.ecr"
+end
+
+get "/register" do |env|
+    message = ""
+    render "src/views/register.ecr", "src/views/layout.ecr"
+end
+
+post "/register" do |env|
+    id = env.params.body["id"].as(String)
+    pass = env.params.body["pass"].as(String)
+    if id == "" ||  pass == ""
+        message = "invalid request"
+        render "src/views/index.ecr", "src/views/layout.ecr"
+    else
+        begin
+            DB.open "sqlite3://./data.db" do |db|
+                db.exec "INSERT INTO accounts VALUES (?,?);", id, pass
+            end
+        rescue
+            message = "id already taken"
+            render "src/views/register.ecr", "src/views/layout.ecr"
+        else
+            env.redirect "/"
+        end
+    end
+
+end
+
+get "/login" do |env|
+    message = ""
+    render "src/views/login.ecr", "src/views/layout.ecr"
+end
+
+post "/login" do |env|
+    id = env.params.body["id"].as(String)
+    pass = env.params.body["pass"].as(String)
+    if id != "" && pass != ""
+        env.session.string("id", id)
+        env.redirect "/"
+    else
+        message = "Not Found"
+        render "src/views/login.ecr", "src/views/layout.ecr"
+    end
+end
+
+post "/logout" do |env|
+    env.session.destroy
+    env.redirect "/"
+end
+
+get "/source" do |env|
+    send_file env, __FILE__, "text/plain"
+end
+
+
+
+************************************************* af/afedc82152dd8f38497ae1b17bedd7b647e062
+
+tree ff591ccbfb2cf72a371008a82f4210209797584f
+parent 8316c40ce4f952bd9a10bf53921eb1039820d403
+author tsgctf <info@tsg.ne.jp> 1556970749 +0900
+committer tsgctf <info@tsg.ne.jp> 1556970749 +0900
+
+made solvable
+
+
+************************************************* b3/46b76e3642b0b33f5b17a19761b8d77276473b
+
+tree 97fe1a6ab46a57cfa8043a17395b2501332c2436
+parent b614e74c0d6db7c50c64a6f643c08e768308295c
+author tsgctf <info@tsg.ne.jp> 1556625243 +0900
+committer tsgctf <info@tsg.ne.jp> 1556625243 +0900
+
+separate files(config or not)
+
+
+************************************************* b6/14e74c0d6db7c50c64a6f643c08e768308295c
+
+tree 7ddff67ab554b53d00d00ae91a3b4c36578b37f0
+parent 828b54e76c9ee94b1d9a478aef792726c60a01bc
+author tsgctf <info@tsg.ne.jp> 1556624286 +0900
+committer tsgctf <info@tsg.ne.jp> 1556624286 +0900
+
+redirect '/' when 404
+
+
+************************************************* bf/a5390abc0810070a1983a6ff8982bcc2a6a196
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 6eec6e57cc9eb5aa67f09fb73bdb3b933d7fdded	README.md
+040000 tree 5e1b13226968864981f768dd68bb3a5141f10b26	problem
+
+
+************************************************* bf/f308624444eed4cac43b0d432a92d2d350fcfb
+
+tree e79b903e56ed961fd3c0076682976d045f7cec52
+parent f4416accd32d3063630d243770ff6d1ba79ac209
+author tsgctf <info@tsg.ne.jp> 1556637102 +0900
+committer tsgctf <info@tsg.ne.jp> 1556637102 +0900
+
+fix error handling of body paramators
+
+
+************************************************* c1/e375244c834c08d537d564e2763a7b92d5f9a8
+
+xú«A
+Ä –À¥çºAP®˝«–TJãôi—›ãVè7çC7ıwÖêÁ·¨¯ö¸Ç⁄·É’N)§b7ı/zÎXeÀ‚	£&∫∞hB6k*πa1k] ±a§Á≠Õœåç%{
+
+************************************************* c2/9410cbe0e08299c0f0ee8085642bd24a838485
+
+require "kemal"
+require "kemal-session"
+
+Kemal::Session.config.secret = ENV["session_secret"]
+
+error 404 do |env|
+    env.redirect "/"
+end
+
+get "/" do |env|
+    id = env.session.string("id") rescue nil
+    message = id ? "Hello, #{id}" : "Please login."
+    render "views/index.ecr", "views/layout.ecr"
+end
+
+post "/login" do |env|
+    id = env.params.body["id"].as(String) rescue ""
+    pass = env.params.body["pass"].as(String) rescue ""
+    if id && pass
+        env.session.string("id", id)
+        env.redirect "/"
+    end
+end
+
+post "/logout" do |env|
+    env.session.destroy
+    env.redirect "/"
+end
+
+get "/source" do |env|
+    send_file env, __FILE__, "text/plain"
+end
+
+Kemal.run
+
+************************************************* c4/b2408b3646bb0d2d05b639b4d99b009815c97e
+
+tree bfa5390abc0810070a1983a6ff8982bcc2a6a196
+parent 1132b19fe615106585d0a4d73a1d2caebf213b1c
+author tsgctf <info@tsg.ne.jp> 1556970883 +0900
+committer tsgctf <info@tsg.ne.jp> 1556970883 +0900
+
+add problem statement
+
+
+************************************************* cd/7068e30ead3aa205f7bc8c73e1caa8854221a3
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob fa7b6981166dcad181464007968ddf2c44b88973	.gitignore
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 60723b12e68c53e802729604a16931e74f000e81	README.md
+100644 blob 00ba81bd54c79a5e712435ee9ecd2b2d8585917c	main.cr
+100644 blob a56e0143927a72fee0c6f00618442def5cd60fac	shard.lock
+100644 blob d3a384c81e3e530ad97719e80b8223ed7754a4a2	shard.yml
+040000 tree da64e5cf3af628fed6a351de35fbca1f39a61b84	src
+
+
+************************************************* d0/750a2659e0c89c3e61a2c6d8573c52adafe860
+
+<form action="/login" method="post">
+    <input type="text" name="id">
+    <input type="text" name="pass">
+    <input type="submit" value="login">
+</form>
+
+
+************************************************* d0/ca60424dc0174f1e3eb142a508a205e0df8df7
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 6eec6e57cc9eb5aa67f09fb73bdb3b933d7fdded	README.md
+040000 tree d5fe4dc31680a0c12730b4599ecccb369b6a0a14	problem
+
+
+************************************************* d3/953a7e9d5e89a07f767851721c09b543fe1a9b
+
+tree 207cef168362ac985a373f49fdbcf1d29035b6fb
+author tsgctf <info@tsg.ne.jp> 1556612767 +0900
+committer tsgctf <info@tsg.ne.jp> 1556612767 +0900
+
+initial commit
+
+
+************************************************* d3/a384c81e3e530ad97719e80b8223ed7754a4a2
+
+name: easy_web
+version: 0.1.0
+
+authors:
+  - tsgctf <info@tsg.ne.jp>
+
+targets:
+  easy_web:
+    main: main.cr
+
+crystal: 0.28.0
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+    branch: master
+  kemal-session:
+    github: kemalcr/kemal-session
+  sqlite3:
+    github: crystal-lang/crystal-sqlite3
+
+
+************************************************* d5/64d0bc3dd917926892c55e3706cc116d5b165e
+
+100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391	.gitkeep
+
+
+************************************************* d5/fe4dc31680a0c12730b4599ecccb369b6a0a14
+
+100644 blob 94ae2db65e3dc2365cdc8136dececdbc35374adc	.gitignore
+100644 blob dd46f3189d012d72738a6aa20358581d71945bca	README.md
+100644 blob c1e375244c834c08d537d564e2763a7b92d5f9a8	flag
+100644 blob 02d365359d84a5d4f4317fa3549fe073a024c502	main.cr
+100644 blob a56e0143927a72fee0c6f00618442def5cd60fac	shard.lock
+100644 blob d3a384c81e3e530ad97719e80b8223ed7754a4a2	shard.yml
+040000 tree 69c2b0afdb2a14797f43e4424dc06cc6202bea1f	src
+
+
+************************************************* d6/30e501eea771f59769592170cdc0bf2d741ae6
+
+version: 1.0
+shards:
+  exception_page:
+    github: crystal-loot/exception_page
+    version: 0.1.2
+
+  kemal:
+    github: kemalcr/kemal
+    commit: 5267555322bf17376bb262fa881d915abbe7f5b3
+
+  kilt:
+    github: jeromegn/kilt
+    version: 0.4.0
+
+  radix:
+    github: luislavena/radix
+    version: 0.3.9
+
+
+
+************************************************* d7/56753ddde35b336989129b46062c22e97d0e38
+
+040000 tree d564d0bc3dd917926892c55e3706cc116d5b165e	css
+040000 tree d564d0bc3dd917926892c55e3706cc116d5b165e	js
+
+
+************************************************* da/64e5cf3af628fed6a351de35fbca1f39a61b84
+
+100644 blob 62062f1afde0d9ae9b4d91781780dd615c6448f9	app.cr
+040000 tree 2c6881340dd54ea0fbc6013da69701adf77cd80f	views
+
+
+************************************************* dd/46f3189d012d72738a6aa20358581d71945bca
+
+## Development
+
+```
+# install crystal lang
+$ shards install
+$ crystal main.cr
+```
+
+## Build
+
+```
+$ crystal build main.cr --release
+```
+
+************************************************* e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+
+
+
+************************************************* e7/8e4553e8c4e68a733f67ba8abaed1db3bb95e0
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob fa7b6981166dcad181464007968ddf2c44b88973	.gitignore
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 60723b12e68c53e802729604a16931e74f000e81	README.md
+100644 blob 00ba81bd54c79a5e712435ee9ecd2b2d8585917c	main.cr
+100644 blob a56e0143927a72fee0c6f00618442def5cd60fac	shard.lock
+100644 blob d3a384c81e3e530ad97719e80b8223ed7754a4a2	shard.yml
+040000 tree 56fced572a5abc13cf60a8a49a19d5af87f61d87	src
+
+
+************************************************* e7/9b903e56ed961fd3c0076682976d045f7cec52
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob fa7b6981166dcad181464007968ddf2c44b88973	.gitignore
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 60723b12e68c53e802729604a16931e74f000e81	README.md
+100644 blob 00ba81bd54c79a5e712435ee9ecd2b2d8585917c	main.cr
+100644 blob a56e0143927a72fee0c6f00618442def5cd60fac	shard.lock
+100644 blob d3a384c81e3e530ad97719e80b8223ed7754a4a2	shard.yml
+040000 tree 6754b81daa8414ea07475e5350f2d54c7523b989	src
+
+
+************************************************* e9/441ab4fc0a169d8482e76da4b9f55a6caa5823
+
+require "kemal"
+require "kemal-session"
+
+error 404 do |env|
+    env.redirect "/"
+end
+
+get "/" do |env|
+    id = env.session.string("id") rescue nil
+    message = id ? "Hello, #{id}" : "Please login."
+    render "src/views/index.ecr", "src/views/layout.ecr"
+end
+
+post "/login" do |env|
+    id = env.params.body["id"].as(String) rescue ""
+    pass = env.params.body["pass"].as(String) rescue ""
+    if id && pass
+        env.session.string("id", id)
+        env.redirect "/"
+    end
+end
+
+post "/logout" do |env|
+    env.session.destroy
+    env.redirect "/"
+end
+
+get "/source" do |env|
+    send_file env, __FILE__, "text/plain"
+end
+
+
+
+************************************************* eb/c4754f23719c17eedf24af0187be86b52e71d2
+
+require "./src/*"
+require "sqlite3"
+require "zlib"
+
+flag = File.open("./flag", "r") do |f|
+    Zlib::Reader.open(f) do |inflate|
+        inflate.gets_to_end
+    end
+end
+
+`rm -rf data.db`
+DB.open "sqlite3://./data.db" do |db|
+    db.exec "CREATE TABLE accounts (id text primary key, pass text);"
+    db.exec "INSERT INTO accounts VALUES ('admin', '#{flag}');"
+end
+
+
+Kemal::Session.config.secret = ENV["session_secret"]
+Kemal.run
+
+************************************************* f4/416accd32d3063630d243770ff6d1ba79ac209
+
+tree e78e4553e8c4e68a733f67ba8abaed1db3bb95e0
+parent b346b76e3642b0b33f5b17a19761b8d77276473b
+author tsgctf <info@tsg.ne.jp> 1556629237 +0900
+committer tsgctf <info@tsg.ne.jp> 1556629237 +0900
+
+add sqlite3 bindings and implement /register
+
+
+************************************************* f8/7f5c14cbbd7d462ab7c5ed4f7b4b822d3254a4
+
+# TODO
+
+************************************************* fa/17d60b89e69d855a7c01363435995b4dd67def
+
+Hello <%= name %>
+<a href="/source">source code</a>
+
+************************************************* fa/7b6981166dcad181464007968ddf2c44b88973
+
+/docs/
+/lib/
+/bin/
+/.shards/
+*.dwarf
+*.db
+
+************************************************* ff/42cc4a1974e58b02772f401321ba3f57846e38
+
+100644 blob fa17d60b89e69d855a7c01363435995b4dd67def	index.ecr
+100644 blob 8a5cd16517aacf3b150620f6c5347d8e27ef47dc	layout.ecr
+
+
+************************************************* ff/591ccbfb2cf72a371008a82f4210209797584f
+
+100644 blob 163eb75c85257e212368c0694a2947ebcd4c9bcc	.editorconfig
+100644 blob 94ae2db65e3dc2365cdc8136dececdbc35374adc	.gitignore
+100644 blob ffc7b6ac56d181e10a191d2c4115aa8d83aec847	.travis.yml
+100644 blob 60723b12e68c53e802729604a16931e74f000e81	README.md
+100644 blob c1e375244c834c08d537d564e2763a7b92d5f9a8	flag
+100644 blob ebc4754f23719c17eedf24af0187be86b52e71d2	main.cr
+100644 blob a56e0143927a72fee0c6f00618442def5cd60fac	shard.lock
+100644 blob d3a384c81e3e530ad97719e80b8223ed7754a4a2	shard.yml
+040000 tree 34b46ad3604df653c93fcede1b7e2c546a748032	src
+
+
+************************************************* ff/c7b6ac56d181e10a191d2c4115aa8d83aec847
+
+language: crystal
+

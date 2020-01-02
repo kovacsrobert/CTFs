@@ -1,0 +1,24 @@
+Description:
+  Working on making a problem of TSG CTF, I noticed that I have staged and committed the flag file by mistake before I knew it.
+  I googled and found the following commands, so I'm not sure but anyway typed them. It should be ok, right?
+
+  $ git filter-branch --index-filter "git rm -f --ignore-unmatch *flag" --prune-empty -- --all
+  $ git reflog expire --expire=now --all
+  $ git gc --aggressive --prune=now
+
+Notes:
+  filter-branch   -> removes any file that matches '*flag' from repo history
+  reflog          -> remove all reflogs
+  gc              -> packes all objects, and removes unreachables
+
+Solution:
+	1. create new repo in another directory
+	2. copy pack-b799d65ebb2cc3fab7878fcf2a2642585de29408.pack to new repo root
+	3. unpack objects with 'git unpack-objects < pack-b799d65ebb2cc3fab7878fcf2a2642585de29408.pack'
+	4. run solve.sh, and save output to solve.output; this will list all objects under .git/objects and get the content of all repos with git-cat-file
+	5. serch for flag, find flag file sha-1 code: c1e375244c834c08d537d564e2763a7b92d5f9a8
+	6. move content of c1e375244c834c08d537d564e2763a7b92d5f9a8 to flag file
+	7. use the zlib hint under ebc4754f23719c17eedf24af0187be86b52e71d2, and uncompress flag
+
+Flag:
+	TSGCTF{$_git_update-ref_-d_refs/original/refs/heads/master_S0rry_f0r_m4king_4_m1st4k3_0n_th1s_pr0bl3m}
