@@ -1,0 +1,21 @@
+Cookie monster:
+	You got it! flag{C00kies_4r3_the_b3st}
+
+Javascript password
+	if (input == "Zesty Rules") { foo.innerHTML = "You Got It! flag{server>browser}";} else { foo.innerHTML = "Nope.. Try Again!"; }
+
+What The Header
+	neverlanheader: flag{much_cust0m_v3ry_h34der}
+
+Base64
+	ZmxhZ3tiYXNlNjRfaXNfZWFzeX0=
+	flag{base64_is_easy}
+
+Morse madness
+	..-. .-.. .- --. / -... . . .--. -....- -... ----- ----- .--. /
+	FLAG BEEP-B00P
+
+Crypto Box
+	cipher: spvk{tln_lqn_heckxf}
+	key: NeverLANCTF -> neverlanctf
+	flag{can_you_crypto}
