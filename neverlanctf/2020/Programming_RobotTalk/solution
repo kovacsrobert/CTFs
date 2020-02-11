@@ -1,0 +1,14 @@
+wget -U "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)" https://challenges.neverlanctf.com:1120
+
+cipher: -cHBueHVubmVwZg==-
+plainText: -ppnxunnepf-
+cipher: -c2xjcHBzYnhnYg==-
+plainText: -slcppsbxgb-
+cipher: -aWR2cW5qemJ5cg==-
+plainText: -idvqnjzbyr-
+cipher: -Z2x6eHBucnRodA==-
+plainText: -glzxpnrtht-
+cipher: -em9sY25sc3VtYw==-
+plainText: -zolcnlsumc-
+Finished with flag: Awesome, continuing.
+flag{Ant1_hum4n}

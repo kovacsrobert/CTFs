@@ -1,0 +1,4 @@
+Solution is in frame 137/138, in query string
+
+flag%7Bensure_https_is_always_used%7D
+flag{ensure_https_is_always_used}

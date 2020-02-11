@@ -1,0 +1,8 @@
+test:
+	echo 'test16' | md5sum | tr -d " -" > test_hash
+
+	hashcat -m 0 -a 3 ./test_hash ?l?l?l?l?d?d
+	john -format=MD5 --mask=?1?1?1?1?2?2 -1 [a-z] -2 [0-9] ./test_hash
+
+ctf:
+	hashcat --attack-mode=3 '267530778aa6585019c98985eeda255f' hash 
