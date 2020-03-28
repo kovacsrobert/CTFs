@@ -1,0 +1,15 @@
+Old Crypto Server
+100
+We found a very old crypto server.
+
+He has a secret that we want to get.
+
+However, he will not give it up so easily.
+
+Download
+
+nc tasks.aeroctf.com 44323
+
+flag form for this task is Aero{[0-9a-f]{32}} *
+
+@revker

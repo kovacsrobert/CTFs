@@ -1,0 +1,16 @@
+Ricardo Milos
+
+<!-- Challenge -->
+<form id="ricardo" method="GET">
+    <input name="milos" type="text" class="form-control" placeholder="True" value="True">
+</form>
+<script>
+    ricardo.action = (new URL(location).searchParams.get('ricardo') || '#')
+    setTimeout(_ => {
+        ricardo.submit()
+    }, 2000)
+</script>
+
+http://localhost:8000/test.html?milos=True#
+http://localhost:8000/test.html?ricardo="milos=test"
+http://localhost:8000/test.html?ricardo=javascript:alert(123)

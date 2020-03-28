@@ -1,0 +1,55 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+    </head>
+<body>
+
+    <!--
+
+    <h2 id="spaghet"></h2>
+    <script>
+        let input = (new URL(location).searchParams.get('somebody') || "Somebody") + " Toucha Ma Spaghet!";
+    	console.log(input + ' - ' + typeof(input));
+        spaghet.innerHTML = input
+    </script>
+
+
+    <h2 id="maname"></h2>
+    <script>
+        let jeff = (new URL(location).searchParams.get('jeff') || "JEFFF")
+        console.log(jeff + ' - ' + typeof(jeff));
+        let ma = ""
+        eval(`ma = "Ma name ${jeff}"`)
+        console.log(ma + ' - ' + typeof(ma));
+        setTimeout(_ => {
+            maname.innerText = ma
+        }, 1000)
+    </script>
+
+
+    <div id="uganda"></div>
+    <script>
+        let wey = (new URL(location).searchParams.get('wey') || "do you know da wey?");
+        console.log("wey: " + wey);
+        wey = wey.replace(/[<>]/g, '')
+        uganda.innerHTML = `<input type="text" placeholder="${wey}" class="form-control">`
+    </script>
+
+    -->
+
+    <form id="ricardo" method="GET">
+        <input name="milos" type="text" class="form-control" placeholder="True" value="True">
+    </form>
+    <script>
+        console.log(ricardo)
+        console.log(ricardo.action)
+        ricardo.action = (new URL(location).searchParams.get('ricardo') || '#')
+        console.log(ricardo.action)
+        setTimeout(_ => {
+            ricardo.submit()
+        }, 2000)
+    </script>
+
+</body>
+</html>
