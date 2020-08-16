@@ -36,7 +36,6 @@
         uganda.innerHTML = `<input type="text" placeholder="${wey}" class="form-control">`
     </script>
 
-    -->
 
     <form id="ricardo" method="GET">
         <input name="milos" type="text" class="form-control" placeholder="True" value="True">
@@ -50,6 +49,40 @@
             ricardo.submit()
         }, 2000)
     </script>
+
+    
+    <h2 id="will"></h2>
+    <script>
+        smith = (new URL(location).searchParams.get('markassbrownlee') || "Ah That's Hawt")
+        console.log(smith + ' - ' + typeof(smith))
+        smith = smith.replace(/[\(\`\)\\]/g, '')
+        console.log(smith + ' - ' + typeof(smith))
+        will.innerHTML = smith
+    </script>
+
+    
+    <script>
+        balls = (new URL(location).searchParams.get('balls') || "Ninja has Ligma")
+        console.log(balls + ' - ' + typeof(balls))
+        balls = balls.replace(/[A-Za-z0-9]/g, '')
+        console.log(balls + ' - ' + typeof(balls))
+        eval(balls)
+    </script>
+
+    -->
+
+    <script>
+        mafia = (new URL(location).searchParams.get('mafia') || '1+1')
+        console.log(mafia + ' - ' + typeof(mafia))
+        mafia = mafia.slice(0, 50)
+        console.log(mafia + ' - ' + typeof(mafia))
+        mafia = mafia.replace(/[\`\'\"\+\-\!\\\[\]]/gi, '_')
+        console.log(mafia + ' - ' + typeof(mafia))
+        mafia = mafia.replace(/alert/g, '_')
+        console.log(mafia + ' - ' + typeof(mafia))
+        eval(mafia)
+    </script>
+
 
 </body>
 </html>

