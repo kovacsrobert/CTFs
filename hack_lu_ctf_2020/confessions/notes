@@ -1,0 +1,28 @@
+
+
+after publish:
+	https://confessions.flu.xxx/#a0260452-ea32-4a2e-9cb7-d05f87997322
+	https://confessions.flu.xxx/#ded2ec0f-1509-4aa8-bf63-5f701d6a9c71
+
+not existing:
+	https://confessions.flu.xxx/#bc68e734-a9ec-4425-9bb1-4988ea6943a9
+
+await getConfessionWithMessage('a0260452-ea32-4a2e-9cb7-d05f87997322')
+await getConfession('5a047cba5d6e0cf62d2618149290180e1476106d71bd9fdb7b1f0c41437c2ff5')
+
+
+query:
+{
+    "operationName": null,
+    "query" : "mutation Q($id: String) { confessionWithMessage(id: $id) { title, hash, message } }"
+}
+result:
+{
+    "data": {
+        "confessionWithMessage": {
+            "title": "Flag",
+            "hash": "5a047cba5d6e0cf62d2618149290180e1476106d71bd9fdb7b1f0c41437c2ff5",
+            "message": null
+        }
+    }
+}
