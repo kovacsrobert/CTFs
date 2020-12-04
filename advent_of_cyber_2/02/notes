@@ -1,0 +1,12 @@
+The Elf Strikes Back! - Web Exploitation
+
+ip: 10.9.215.98
+port: 3456
+
+10.10.213.119?id=ODIzODI5MTNiYmYw
+
+.jpeg,.jpg,.png
+
+http://10.10.213.119/uploads/?id=ODIzODI5MTNiYmYw
+
+THM{MGU3Y2UyMGUwNjExYTY4NTAxOWJhMzhh}
