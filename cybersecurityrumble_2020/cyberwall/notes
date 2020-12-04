@@ -1,0 +1,4 @@
+ETag: "1602840750.0-90771912-311103029"
+
+curl -I -v --header 'If-None-Match: "1602840750.0-90771912-311103029"' http://chal.cybersecurityrumble.de:3812/static/img/blockchain.gif
+
