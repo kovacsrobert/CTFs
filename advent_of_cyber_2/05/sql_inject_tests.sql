@@ -9,4 +9,7 @@
 # SELECT * FROM test.users WHERE name = 'admin' UNION SELECT null, null # ' AND password = 'verysecret';
 # SELECT * FROM test.users WHERE name = 'admin' UNION SELECT 'a', null # ' AND password = 'verysecret';
 
-SHOW VARIABLES LIKE '@@version';
+#SHOW VARIABLES LIKE '@@version';
+SELECT database() FROM test.users;
+
+SELECT table_name FROM information_schema.tables;
