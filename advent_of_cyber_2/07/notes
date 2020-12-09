@@ -7,5 +7,4 @@ pcap1:
 	http.request.method == "GET" && ip.src == 10.10.67.199 -> GET /posts/reindeer-of-the-week/ HTTP/1.1
 
 pcap2:
-
-	The Polar Express Movie
+	plaintext_password_fiasco
