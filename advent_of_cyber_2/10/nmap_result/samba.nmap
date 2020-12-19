@@ -1,0 +1,10 @@
+# Nmap 7.80 scan initiated Sat Dec 19 16:23:15 2020 as: nmap -oA samba 10.10.242.148
+Nmap scan report for 10.10.242.148
+Host is up (0.060s latency).
+Not shown: 997 closed ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+
+# Nmap done at Sat Dec 19 16:23:16 2020 -- 1 IP address (1 host up) scanned in 1.01 seconds

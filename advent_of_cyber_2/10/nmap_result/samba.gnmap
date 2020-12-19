@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Sat Dec 19 16:23:15 2020 as: nmap -oA samba 10.10.242.148
+Host: 10.10.242.148 ()	Status: Up
+Host: 10.10.242.148 ()	Ports: 22/open/tcp//ssh///, 139/open/tcp//netbios-ssn///, 445/open/tcp//microsoft-ds///	Ignored State: closed (997)
+# Nmap done at Sat Dec 19 16:23:16 2020 -- 1 IP address (1 host up) scanned in 1.01 seconds

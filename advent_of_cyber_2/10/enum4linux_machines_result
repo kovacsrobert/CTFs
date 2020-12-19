@@ -1,0 +1,36 @@
+WARNING: polenum.py is not in your path.  Check that package is installed and your PATH is sane.
+Starting enum4linux v0.8.9 ( http://labs.portcullis.co.uk/application/enum4linux/ ) on Sat Dec 19 16:26:39 2020
+
+ ========================== 
+|    Target Information    |
+ ========================== 
+Target ........... 10.10.242.148
+RID Range ........ 500-550,1000-1050
+Username ......... ''
+Password ......... ''
+Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
+
+
+ ===================================================== 
+|    Enumerating Workgroup/Domain on 10.10.242.148    |
+ ===================================================== 
+[+] Got domain/workgroup name: TBFC-SMB-01
+
+ ====================================== 
+|    Session Check on 10.10.242.148    |
+ ====================================== 
+[+] Server 10.10.242.148 allows sessions using username '', password ''
+
+ ============================================ 
+|    Getting domain SID for 10.10.242.148    |
+ ============================================ 
+Domain Name: TBFC-SMB-01
+Domain Sid: (NULL SID)
+[+] Can't determine if host is part of domain or part of a workgroup
+
+ ============================================ 
+|    Machine Enumeration on 10.10.242.148    |
+ ============================================ 
+[E] Internal error.  Not implemented in this version of enum4linux.
+enum4linux complete on Sat Dec 19 16:26:41 2020
+
