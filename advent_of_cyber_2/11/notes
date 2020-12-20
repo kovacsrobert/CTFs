@@ -1,0 +1,10 @@
+The Rogue Gnome - Networking
+
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+attack ip: 10.9.215.98
+target ip: 10.10.125.241
+
+
+ssh -p aoc2020 cmnatic@10.10.125.241
+aoc2020
