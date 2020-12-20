@@ -1,0 +1,11 @@
+# Nmap 7.80 scan initiated Sun Dec 20 18:00:37 2020 as: nmap -Pn -oA nmap_result 10.10.232.11
+Nmap scan report for 10.10.232.11
+Host is up (0.055s latency).
+Not shown: 996 filtered ports
+PORT     STATE SERVICE
+3389/tcp open  ms-wbt-server
+5357/tcp open  wsdapi
+8009/tcp open  ajp13
+8080/tcp open  http-proxy
+
+# Nmap done at Sun Dec 20 18:00:42 2020 -- 1 IP address (1 host up) scanned in 5.80 seconds

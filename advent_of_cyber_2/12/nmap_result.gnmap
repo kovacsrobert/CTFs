@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Sun Dec 20 18:00:37 2020 as: nmap -Pn -oA nmap_result 10.10.232.11
+Host: 10.10.232.11 ()	Status: Up
+Host: 10.10.232.11 ()	Ports: 3389/open/tcp//ms-wbt-server///, 5357/open/tcp//wsdapi///, 8009/open/tcp//ajp13///, 8080/open/tcp//http-proxy///	Ignored State: filtered (996)
+# Nmap done at Sun Dec 20 18:00:42 2020 -- 1 IP address (1 host up) scanned in 5.80 seconds
