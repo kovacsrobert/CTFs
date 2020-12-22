@@ -1,0 +1,8 @@
+# Nmap 7.80 scan initiated Tue Dec 22 18:33:29 2020 as: nmap -oA nmap -Pn 10.10.210.215
+Nmap scan report for 10.10.210.215
+Host is up (0.060s latency).
+Not shown: 999 closed ports
+PORT     STATE SERVICE
+8000/tcp open  http-alt
+
+# Nmap done at Tue Dec 22 18:33:30 2020 -- 1 IP address (1 host up) scanned in 0.96 seconds

@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Tue Dec 22 18:33:29 2020 as: nmap -oA nmap -Pn 10.10.210.215
+Host: 10.10.210.215 ()	Status: Up
+Host: 10.10.210.215 ()	Ports: 8000/open/tcp//http-alt///	Ignored State: closed (999)
+# Nmap done at Tue Dec 22 18:33:30 2020 -- 1 IP address (1 host up) scanned in 0.96 seconds
