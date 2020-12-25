@@ -1,0 +1,14 @@
+ReverseELFneering - Reverse Engineering
+
+10.10.194.221
+
+elfmceager / adventofcyber
+
+aa - analyze code at start
+db [addr] - add breakpoint
+db -[add] - rmeove breakpoint
+dr - debug registry print
+dc - debug continue
+ds - debug step
+ds [X] - debug X number of steps
+px @[addr]- print hex

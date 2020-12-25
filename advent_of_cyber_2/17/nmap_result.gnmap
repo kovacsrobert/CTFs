@@ -1,0 +1,4 @@
+# Nmap 7.80 scan initiated Fri Dec 25 14:34:31 2020 as: nmap -oA nmap_result -Pn 10.10.194.221
+Host: 10.10.194.221 ()	Status: Up
+Host: 10.10.194.221 ()	Ports: 22/open/tcp//ssh///	Ignored State: closed (999)
+# Nmap done at Fri Dec 25 14:34:31 2020 -- 1 IP address (1 host up) scanned in 0.92 seconds
