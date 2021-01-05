@@ -1,5 +1,9 @@
 The Grinch strikes again! - Blue Teaming
 
+10.10.74.94
+
 administrator / sn0wF!akes!!!
 
-
+vssadmin
+vssadmin list shadows
+vssadmin list volumes
